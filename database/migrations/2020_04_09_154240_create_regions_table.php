@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateBusesTable extends Migration
+class CreateRegionsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,11 @@ class CreateBusesTable extends Migration
      */
     public function up()
     {
-        Schema::create('buses', function (Blueprint $table) {
-            $table->bigIncrements('bus_id');
-            $table->string('bus_name');
-            $table->string('bus_code');
-            $table->integer('operator_id');
-            $table->string('total_seats');
-            $table->boolean('status')->default(1);
+        Schema::create('regions', function (Blueprint $table) {
+            $table->bigIncrements('region_id');
+            $table->string('region_name');
+            $table->string('region_code');
+            $table->boolean('status')->default(0);
             $table->timestamps();
         });
     }
@@ -31,6 +29,6 @@ class CreateBusesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('buses');
+        Schema::dropIfExists('regions');
     }
 }
